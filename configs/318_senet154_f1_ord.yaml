@@ -1,0 +1,67 @@
+remark: Testing zoominnet on new data only
+home: /media/ags/DATA/CODE/kaggle/aptos2019-blindness-detection/
+#home: /home/eee/ug/15084015/aptos/
+fold: 1
+total_folds: 5
+size: 224
+top_lr: 1e-5
+class_weights: None
+cw_sampling: False
+he_sampling: False
+hard_ex_weight: 2
+hard_df: weights/118_efficientnet-b5_f1_postraug2/diff.csv
+num_samples: None
+model_name: senet154
+ext_text: test
+mean: (0.485, 0.456, 0.406)
+std: (0.229, 0.224, 0.225)
+
+pretraining: True # <<<<<<<
+
+pretrained: False
+pretrained_path: weights/
+new_df_path: data/train.csv
+old_df_path: data/2015.csv
+mes_df: data/train_messidor.csv
+idrid_df: data/idrid.csv
+sample_submission: data/sample_submission.csv
+data_folder: data/npy_files/aug_6/
+#data_folder: data/all_images/
+phases: ["train", "val", "val_new"]
+batch_size:
+    train: 16
+    val: 8
+    val_new: 8
+    test: 8
+
+num_workers: 12
+num_classes: 5
+ep2unfreeze: 2 # <<<<<<<<<<
+num_epochs: 60
+base_lr: None
+momentum: 0.95
+patience: 3
+tc_dups: False # <<<<<<<<<<<
+dups_wsd: data/npy_files/good_duplicates.npy
+bad_idx: data/npy_files/all_bad_duplicates.npy
+
+
+sample: True # <<<<<<<<<
+count_dict:
+    0: 22000
+    2: 13000
+    1: 6000
+    3: 2087
+    4: 1914
+
+messidor_in_train: False
+idrid_in_train: False
+
+add_old_samples: False
+sample_dict:
+    0: 1900
+    2: 1900
+    1: 0
+    3: 1900
+    4: 1900
+
